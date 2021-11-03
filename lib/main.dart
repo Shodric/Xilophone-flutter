@@ -29,68 +29,33 @@ class _MyAppState extends State<MyApp> {
     player.play();
   }
 
+  Expanded buildKey({color, nSound}) {
+    return Expanded(
+      child: FlatButton(
+        color: color,
+        onPressed: () {
+          playSound(nSound);
+        },
+        child: const Text(' '),
+      ),
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
       home: Scaffold(
+        backgroundColor: Colors.black,
         body: Column(
+          crossAxisAlignment: CrossAxisAlignment.stretch,
           children: [
-            FlatButton(
-              color: Colors.red,
-              onPressed: () {
-                playSound(1);
-              },
-              child: const Text(' '),
-            ),
-            const SizedBox(height: 10),
-            FlatButton(
-              color: Colors.orange,
-              onPressed: () {
-                playSound(2);
-              },
-              child: const Text(' '),
-            ),
-            const SizedBox(height: 10),
-            FlatButton(
-              color: Colors.yellow,
-              onPressed: () {
-                playSound(3);
-              },
-              child: const Text(' '),
-            ),
-            const SizedBox(height: 10),
-            FlatButton(
-              color: Colors.green,
-              onPressed: () {
-                playSound(4);
-              },
-              child: const Text(' '),
-            ),
-            const SizedBox(height: 10),
-            FlatButton(
-              color: Colors.teal,
-              onPressed: () {
-                playSound(5);
-              },
-              child: const Text(' '),
-            ),
-            const SizedBox(height: 10),
-            FlatButton(
-              color: Colors.blue,
-              onPressed: () {
-                playSound(6);
-              },
-              child: const Text(' '),
-            ),
-            const SizedBox(height: 10),
-            FlatButton(
-              color: Colors.purple,
-              onPressed: () {
-                playSound(7);
-              },
-              child: const Text(' '),
-            ),
-            const SizedBox(height: 10),
+            buildKey(color: Colors.red, nSound: 1),
+            buildKey(color: Colors.orange, nSound: 2),
+            buildKey(color: Colors.yellow, nSound: 3),
+            buildKey(color: Colors.green, nSound: 4),
+            buildKey(color: Colors.teal, nSound: 5),
+            buildKey(color: Colors.blue, nSound: 6),
+            buildKey(color: Colors.purple, nSound: 7),
           ],
         ),
       ),
